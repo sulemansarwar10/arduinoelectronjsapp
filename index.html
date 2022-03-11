@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>UPVC-P Weghting Scale</title>
+    <style>
+        body {
+            text-align: center;
+
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        label,input{
+        margin-top: 10px;
+        padding: auto;
+        text-decoration: none;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <h1>UPVC-P Weight Scale</h1>
+
+    <!-- We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, Electron <span id="electron-version"></span>, and Serialport <span id="serialport-version"></span> -->
+
+ 
+    <label>Weight Scale:</label>
+    <input type="number" id="scale" />
+    <br />
+    <label>Trolley weight:</label>
+    <input type="number" id="trolley" />
+    <br />
+    <label>Weight Dispatched:</label>
+    <input type="number" id="dispatch" />
+    <br />
+    <input type="button" onclick="myfunction()" value="REFRESH">
+    <input type="button" onclick="myfunction1()" value="READ">
+    <input type="button" onclick="myfunction2()" value="Light ON">
+    <input type="button" onclick="myfunction3()" value="Light OFF">
+    <input type="button" onclick="myfunction5()" value="Print">
+
+    <br/>
+    <div id="error"></div>
+    <div id="ports"></div>
+</body>
+
+<script src="./renderer.js"></script>
+
+</html>
