@@ -6,7 +6,12 @@
     <title>UPVC-P Weghting Scale</title>
     <style>
         body {
+            background-color: white;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
         }
 
@@ -19,39 +24,116 @@
         td {
             border: 1px solid black;
         }
-        label,input{
-        margin-top: 10px;
-        padding: auto;
-        text-decoration: none;
+
+        label,
+        input {
+            margin-top: 10px;
+            padding: auto;
+            text-decoration: none;
         }
-       
+
+        .print {
+            margin: 20px;
+            max-width: 700px;
+            text-decoration: none;
+            outline: none;
+
+        }
+
+        .inp {
+            border-color: transparent;
+
+        }
     </style>
 </head>
 
-<body>
-    <h1>UPVC-P Weight Scale</h1>
+<body id="body">
+    <h1>UPVC-Pipe Weight Scale</h1>
 
     <!-- We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, Electron <span id="electron-version"></span>, and Serialport <span id="serialport-version"></span> -->
 
- 
-    <label>Weight Scale:</label>
-    <input type="number" id="scale" />
-    <br />
-    <label>Trolley weight:</label>
-    <input type="number" id="trolley" />
-    <br />
-    <label>Weight Dispatched:</label>
-    <input type="number" id="dispatch" />
-    <br />
-    <input type="button" onclick="myfunction()" value="REFRESH">
-    <input type="button" onclick="myfunction1()" value="READ">
-    <input type="button" onclick="myfunction2()" value="Light ON">
-    <input type="button" onclick="myfunction3()" value="Light OFF">
-    <input type="button" onclick="myfunction5()" value="Print">
+    <div>
+        <label>Gross Scale:</label>
+        <input type="number" id="scale" disabled />
 
-    <br/>
+    </div>
+    <div>
+        <label>Trolley weight:</label>
+        <input type="number" id="trolley" />
+
+    </div>
+    <div>
+        <label>Net Weight:</label>
+        <input type="number" id="dispatch" disabled />
+
+    </div>
+    <div>
+        <label>User</label>
+        <input type="text" id="user" />
+
+    </div>
+    <div>
+        <label>Remarks:</label>
+        <input type="text" id="remarks" />
+
+    </div>
+
+    <div>
+
+        <input type="button" onclick="myfunction()" value="REFRESH">
+        <!-- <input type="button" onclick="myfunction1()" value="READ"> -->
+        <!-- <input type="button" onclick="myfunction2()" value="Light ON">
+            <input type="button" onclick="myfunction3()" value="Light OFF"> -->
+        <input type="button" onclick="myfunction5()" value="Print">
+
+    </div>
+    <br />
+
+
     <div id="error"></div>
     <div id="ports"></div>
+
+
+<h3>Print Format</h3>
+    <div id="print">
+        <table class="print" style="width:100%">
+            <tr>
+
+                <td colspan="3">UPVC-Pipe Department Weghting Scale</td>
+
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td colspan="2" id="date">Mon Mar 14 2022 10:39:18</td>
+
+            </tr>
+            <tr>
+                <td><strong> Weight:</strong>(kg)</td>
+                <td colspan="2" id="scalep">10</td>
+            </tr>
+            <tr>
+                <td><strong>Trolley Weight:</strong>(kg)</td>
+                <td colspan="2" id="trolleyp">1</td>
+            </tr>
+            <tr>
+                <td><strong>Net Weight:</strong>(kg)</td>
+                <td colspan="2" id="dispatchp">9</td>
+            </tr>
+            <tr style="height:50px">
+                <td><strong>Remarks:</strong></td>
+                <td colspan="2" id="remarksp">production</td>
+            </tr>
+            <tr style="height:80px">
+                <td id="userp">User</td>
+                <td>Production Engineer</td>
+                <td>Production Manager</td>
+            </tr>
+            <tr>
+                <td colspan="3">Developed by Electrical Department</td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 
 <script src="./renderer.js"></script>

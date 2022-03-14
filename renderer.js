@@ -5,7 +5,7 @@
 const { SerialPort } = require('serialport')
 const tableify = require('tableify')
 
-var Port = new SerialPort({ path: "COM3", baudRate: 9600, autoOpen: false }, function (err) {
+var Port = new SerialPort({ path: "COM4", baudRate: 9600, autoOpen: false }, function (err) {
   if (err) {
     return console.log('Error: ', err.message)
   }
@@ -43,7 +43,7 @@ async function listSerialPorts() {
   })
 }
 function myfunction2() {
-  Port.write('o', function (err) {
+  Port.write('R', function (err) {
     if (err) {
       return console.log('Error on write: ', err.message)
     }
@@ -77,8 +77,10 @@ function myfunction1() {
   parser.on('data', function (data) {
     let trolleyw = Number(document.getElementById("trolley").value)
 
-      //console.log('Received data from port: ' + data);
-    scalew.value = Number(data);
+    console.log('Received data from port: ' + data.substring(data.length - 8, data.length - 2));
+    console.log('Received data from port: ' + data);
+
+    scalew.value = Number(data.substring(data.length - 8, data.length - 2));
     dispatchw.value = Number(scalew.value) - trolleyw;
     // Port.write('o')
   });
@@ -90,20 +92,31 @@ function myfunction1() {
 
 function myfunction5() {
 
-
-
-  window.print()
-
-
   console.log("button pressed 5")
+  document.getElementById("date").innerHTML = String(new Date()).substring(0, 25)
+
+  document.getElementById("scalep").innerHTML = Number(document.getElementById("scale").value)
+  document.getElementById("trolleyp").innerHTML = document.getElementById("trolley").value
+  document.getElementById("dispatchp").innerHTML = document.getElementById("dispatch").value
+  document.getElementById("userp").innerHTML = document.getElementById("user").value
+  document.getElementById("remarksp").innerHTML = document.getElementById("remarks").value
+  let body = document.getElementById("body").innerHTML
+  let print = document.getElementById("print").innerHTML
+  
+  document.getElementById("body").innerHTML = print
+  window.print()
+  //alert(print)
+  document.getElementById("body").innerHTML = body
 }
+myfunction1();
+
 function listPorts() {
-  listSerialPorts();
-  // setTimeout(listPorts, 2000);
+  myfunction2();
+  setTimeout(listPorts, 500);
 }
 
 // Set a timeout that will check for new serialPorts every 2 seconds.
 // This timeout reschedules itself.
-//setTimeout(listPorts, 2000);
+setTimeout(listPorts, 500);
 
 
