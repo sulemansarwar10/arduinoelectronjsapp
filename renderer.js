@@ -72,9 +72,9 @@ function myfunction() {
 
 function myfunction1() {
 
-  let scalew = document.getElementById("scale")
-  let dispatchw = document.getElementById("dispatch")
   parser.on('data', function (data) {
+    let scalew = document.getElementById("scale")
+    let dispatchw = document.getElementById("dispatch")
     let trolleyw = Number(document.getElementById("trolley").value)
 
     console.log('Received data from port: ' + data.substring(data.length - 8, data.length - 2));
@@ -93,25 +93,28 @@ function myfunction1() {
 function myfunction5() {
 
   console.log("button pressed 5")
-  document.getElementById("date").innerHTML = String(new Date()).substring(0, 25)
-
+  document.getElementById("date").innerHTML = String(new Date()).substring(0, 16)
+  document.getElementById("time").innerHTML = String(new Date()).substring(16, 25)
   document.getElementById("scalep").innerHTML = Number(document.getElementById("scale").value)
   document.getElementById("trolleyp").innerHTML = document.getElementById("trolley").value
   document.getElementById("dispatchp").innerHTML = document.getElementById("dispatch").value
-  document.getElementById("userp").innerHTML = document.getElementById("user").value
+  //document.getElementById("userp").innerHTML = document.getElementById("user").value
   document.getElementById("remarksp").innerHTML = document.getElementById("remarks").value
+  let user =document.getElementById("user").value
   let body = document.getElementById("body").innerHTML
   let print = document.getElementById("print").innerHTML
   
   document.getElementById("body").innerHTML = print
   window.print()
   //alert(print)
+  //myfunction1();
   document.getElementById("body").innerHTML = body
+  //document.getElementById("user").value=user
 }
 myfunction1();
 
+myfunction2();
 function listPorts() {
-  myfunction2();
   setTimeout(listPorts, 500);
 }
 

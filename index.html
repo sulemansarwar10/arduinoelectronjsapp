@@ -11,7 +11,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
 
         }
 
@@ -34,10 +34,10 @@
 
         .print {
             margin: 20px;
-            max-width: 700px;
+            max-width: 750px;
             text-decoration: none;
             outline: none;
-
+            font-size: 25px
         }
 
         .inp {
@@ -53,12 +53,12 @@
     <!-- We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, Electron <span id="electron-version"></span>, and Serialport <span id="serialport-version"></span> -->
 
     <div>
-        <label>Gross Scale:</label>
+        <label>Gross Weight:</label>
         <input type="number" id="scale" disabled />
 
     </div>
     <div>
-        <label>Trolley weight:</label>
+        <label>First weight:</label>
         <input type="number" id="trolley" />
 
     </div>
@@ -67,11 +67,11 @@
         <input type="number" id="dispatch" disabled />
 
     </div>
-    <div>
+    <!-- <div>
         <label>User</label>
         <input type="text" id="user" />
 
-    </div>
+    </div> -->
     <div>
         <label>Remarks:</label>
         <input type="text" id="remarks" />
@@ -94,44 +94,53 @@
     <div id="ports"></div>
 
 
-<h3>Print Format</h3>
+    <h3>Print Format</h3>
     <div id="print">
+        <h1>UPVC-Pipe Department Weghting Scale</h1>
         <table class="print" style="width:100%">
-            <tr>
 
-                <td colspan="3">UPVC-Pipe Department Weghting Scale</td>
-
-            </tr>
             <tr>
                 <td>Date</td>
-                <td colspan="2" id="date">Mon Mar 14 2022 10:39:18</td>
+                <td id="date">Mon Mar 14 2022 </td>
+                <td>Time</td>
+                <td id="time"> 10:39:18</td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong> Legend</strong></td>
+                <td colspan="2"><strong> Weight</strong></td>
+
 
             </tr>
             <tr>
-                <td><strong> Weight:</strong>(kg)</td>
-                <td colspan="2" id="scalep">10</td>
-            </tr>
-            <tr>
-                <td><strong>Trolley Weight:</strong>(kg)</td>
+                <td colspan="2"><strong>First Weight:</strong>(kg)</td>
                 <td colspan="2" id="trolleyp">1</td>
+
             </tr>
             <tr>
-                <td><strong>Net Weight:</strong>(kg)</td>
+                <td colspan="2"><strong> Second Weight:</strong>(kg)</td>
+                <td colspan="2" id="scalep">10</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="2"><strong>Net Weight:</strong>(kg)</td>
                 <td colspan="2" id="dispatchp">9</td>
             </tr>
             <tr style="height:50px">
                 <td><strong>Remarks:</strong></td>
-                <td colspan="2" id="remarksp">production</td>
+                <td colspan="3" id="remarksp">production</td>
             </tr>
             <tr style="height:80px">
-                <td id="userp">User</td>
-                <td>Production Engineer</td>
-                <td>Production Manager</td>
+                <td id="userp">Prepared By</td>
+                <td style="width:25%"></td>
+                <td>Received By</td>
+                <td style="width:25%"></td>
             </tr>
             <tr>
-                <td colspan="3">Developed by Electrical Department</td>
+                <td colspan="4" style="height:20px">Developed by Electrical Department</td>
             </tr>
         </table>
+
     </div>
 
 </body>
