@@ -74,14 +74,14 @@ function myfunction1() {
 
   parser.on('data', function (data) {
     let scalew = document.getElementById("scale")
-    let dispatchw = document.getElementById("dispatch")
     let trolleyw = Number(document.getElementById("trolley").value)
-
+    let dispatchw = document.getElementById("dispatch")  
     console.log('Received data from port: ' + data.substring(data.length - 8, data.length - 2));
     console.log('Received data from port: ' + data);
-
     scalew.value = Number(data.substring(data.length - 8, data.length - 2));
     dispatchw.value = Number(scalew.value) - trolleyw;
+
+    
     // Port.write('o')
   });
 
@@ -100,10 +100,10 @@ function myfunction5() {
   document.getElementById("dispatchp").innerHTML = document.getElementById("dispatch").value
   //document.getElementById("userp").innerHTML = document.getElementById("user").value
   document.getElementById("remarksp").innerHTML = document.getElementById("remarks").value
-  let user =document.getElementById("user").value
+  // let user =document.getElementById("user").value
   let body = document.getElementById("body").innerHTML
   let print = document.getElementById("print").innerHTML
-  
+
   document.getElementById("body").innerHTML = print
   window.print()
   //alert(print)
@@ -111,10 +111,16 @@ function myfunction5() {
   document.getElementById("body").innerHTML = body
   //document.getElementById("user").value=user
 }
+myfunction2();
 myfunction1();
 
-myfunction2();
 function listPorts() {
+  myfunction2();
+
+  let scalew = document.getElementById("scale")
+  let trolleyw = Number(document.getElementById("trolley").value)
+  let dispatchw = document.getElementById("dispatch") 
+  dispatchw.value = Number(scalew.value) - trolleyw;
   setTimeout(listPorts, 500);
 }
 
